@@ -11,7 +11,7 @@
       </thead>
       <tbody>
         <tr v-for="(user,index) in users" :key="'user'+index">
-          <th scope="row">1</th>
+          <th scope="row">{{index+1}}</th>
           <td>{{user.name}}</td>
           <td>{{user.email}}</td>
           <td>{{new Date(user.created_at)}}</td>
