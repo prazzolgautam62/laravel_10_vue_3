@@ -37,8 +37,12 @@ Start the local development server
 ```bash
 php artisan serve
 ```
-Start the local development server
+For vue js, install all the dependencies using npm
 ```bash
-php artisan serve
+npm install
+```
+Running vue dev Server
+```bash
+npm run dev
 ```
 You can now access the server at (http://127.0.0.1:8000/).
