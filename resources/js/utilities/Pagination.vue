@@ -31,8 +31,8 @@
             >Previous</a
           >
         </li>
-        <li class="page-item disabled">
-          <a class="page-link text-success">{{ pagination.current_page }}</a>
+        <li class="page-item active">
+          <a class="page-link">{{ pagination.current_page }}</a>
         </li>
         <li
           :class="
@@ -81,5 +81,6 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
 </style>

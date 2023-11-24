@@ -19,7 +19,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="exampleFormControlSelect1">Sort Direction</label>
+        <label for="exampleFormControlSelect1">Direction</label>
         <select class="form-control" id="exampleFormControlSelect1" v-model="params.sort_direction">
           <option value="asc">Asc</option>
           <option value="desc">Desc</option>
