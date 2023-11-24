@@ -19,7 +19,7 @@ class UserController extends Controller
         ->when($search_query, function ($query) use ($search_query) {
             return $query->where('name', 'like', '%' . $search_query . '%')->orWhere('email', 'like', '%' . $search_query . '%');
         })
-        ->get();
+        ->paginate(10);
         return response()->json(['status'=>true,'message'=>'Users retrived successfully','data'=>$users]);
     }
 
