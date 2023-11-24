@@ -26,24 +26,10 @@
         </select>
       </div>
     </div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Created At</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(user,index) in users" :key="'user'+index">
-          <th scope="row">{{pagination.from + index}}</th>
-          <td>{{user.name}}</td>
-          <td>{{user.email}}</td>
-          <td>{{new Date(user.created_at)}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <Table
+    :users="users"
+    :from="pagination.from"
+    />
     <Pagination
       :pagination="pagination"
       @first="getUsers(pagination.first_page_url)"
@@ -56,6 +42,7 @@
 <script>
 import { _getUsers } from "./../services/user";
 import Pagination from "../utilities/Pagination.vue";
+import Table from "../components/Table.vue";
 export default {
   data() {
     return {
@@ -96,7 +83,8 @@ export default {
     }
   },
   components: {
-    Pagination
+    Pagination,
+    Table
   },
   created() {
     this.getUsers();

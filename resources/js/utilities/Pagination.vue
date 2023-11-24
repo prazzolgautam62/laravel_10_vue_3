@@ -71,7 +71,7 @@
 
 <script>
 export default {
-  name: "SimplePagination",
+  name: "Pagination",
   props: {
     pagination: {
       type: Object,
