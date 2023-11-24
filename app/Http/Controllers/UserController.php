@@ -10,9 +10,16 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
+        $sort_by = $request->sort_by ?? 'id';
+        $sort_direction = $request->sort_direction ?? 'asc';
+        $search_query = $request->search_query;
+        $users =  User::orderBy($sort_by, $sort_direction)
+        ->when($search_query, function ($query) use ($search_query) {
+            return $query->where('name', 'like', '%' . $search_query . '%')->orWhere('email', 'like', '%' . $search_query . '%');
+        })
+        ->get();
         return response()->json(['status'=>true,'message'=>'Users retrived successfully','data'=>$users]);
     }
 
