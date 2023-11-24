@@ -1,8 +1,6 @@
 <template>
   <div class="d-flex justify-content-between align-items-center">
-    <div class="text-muted">
-      {{ pagination.from }} - {{ pagination.to }} of {{ pagination.total }}
-    </div>
+    <div class="text-muted">{{ pagination.from }} - {{ pagination.to }} of {{ pagination.total }}</div>
     <nav>
       <ul class="pagination" style="margin-top: 10px">
         <li
@@ -16,20 +14,15 @@
             :disabled="pagination.current_page == 1"
             href="#"
             @click="$emit('first')"
-            >First</a
-          >
+          >First</a>
         </li>
-        <li
-          class="page-item"
-          :class="{ disabled: pagination.prev_page_url == null }"
-        >
+        <li class="page-item" :class="{ disabled: pagination.prev_page_url == null }">
           <a
             class="page-link"
             :disabled="pagination.prev_page_url"
             href="#"
             @click="$emit('prev')"
-            >Previous</a
-          >
+          >Previous</a>
         </li>
         <li class="page-item active">
           <a class="page-link">{{ pagination.current_page }}</a>
@@ -46,8 +39,7 @@
             :disabled="pagination.next_page_url"
             href="#"
             @click="$emit('next')"
-            >Next</a
-          >
+          >Next</a>
         </li>
         <li
           :class="
@@ -61,8 +53,7 @@
             :disabled="pagination.last_page == pagination.current_page"
             href="#"
             @click="$emit('last')"
-            >Last</a
-          >
+          >Last</a>
         </li>
       </ul>
     </nav>
@@ -75,12 +66,11 @@ export default {
   props: {
     pagination: {
       type: Object,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 };
 </script>
 
 <style scoped>
-
 </style>

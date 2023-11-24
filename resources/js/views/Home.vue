@@ -26,10 +26,7 @@
         </select>
       </div>
     </div>
-    <Table
-    :users="users"
-    :from="pagination.from"
-    />
+    <Table :users="users" :from="pagination.from" />
     <Pagination
       :pagination="pagination"
       @first="getUsers(pagination.first_page_url)"
@@ -71,9 +68,9 @@ export default {
     }
   },
   methods: {
-    async getUsers(url='') {
+    async getUsers(url = "") {
       try {
-        const response = await _getUsers(url,this.params);
+        const response = await _getUsers(url, this.params);
         let { data, ...pagination } = response.data;
         this.users = data;
         this.pagination = pagination;
