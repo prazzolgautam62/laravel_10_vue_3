@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-between">
+      <div class="mt-auto">
+      <button type="button" class="btn btn-outline-primary">Add New User</button>
+      </div>
+      <div class="d-flex">
       <div class="form-group" style="margin-right:5px;">
         <label for="exampleInputEmail1">Search</label>
         <input
@@ -24,6 +28,7 @@
           <option value="asc">Asc</option>
           <option value="desc">Desc</option>
         </select>
+      </div>
       </div>
     </div>
     <Table :users="users" :from="pagination.from" />
