@@ -16,7 +16,8 @@
         <td>{{user.email}}</td>
         <td>{{new Date(user.created_at)}}</td>
         <td>
-         <button type="button" class="btn btn-outline-primary" @click="editUser(user)">Edit</button>
+         <button type="button" class="btn btn-outline-primary" @click="editUser(user)">Edit</button>&nbsp;
+         <button type="button" class="btn btn-outline-danger" @click="deleteUser(user)">Delete</button>
         </td>
       </tr>
     </tbody>
@@ -38,6 +39,9 @@ export default {
   methods:{
     editUser(user){
       this.$emit("edit",user);
+    },
+    deleteUser(user){
+      this.$emit("delete",user);
     }
   }
 };

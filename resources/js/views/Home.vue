@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <Table :users="users" :from="pagination.from" @edit="editUser"/>
+    <Table :users="users" :from="pagination.from" @edit="editUser" @delete="deleteUser" />
     <Pagination
       :pagination="pagination"
       @first="getUsers(pagination.first_page_url)"
@@ -85,7 +85,7 @@
   </div>
 </template>
 <script>
-import { _getUsers, _createUser, _updateUser } from "./../services/user";
+import { _getUsers, _createUser, _updateUser, _deleteUser } from "./../services/user";
 import Pagination from "../utilities/Pagination.vue";
 import Table from "../components/Table.vue";
 import Modal from "../utilities/Modal.vue";
@@ -144,6 +144,12 @@ export default {
       this.form_params.name = user.name;
       this.form_params.email = user.email;
     },
+    async deleteUser(user){
+      const deleteResponse =  await _deleteUser(user.id);
+      this.$toast.warning(deleteResponse.message);
+      this.getUsers();
+
+    },
     closeModal() {
       this.form_params.name = "";
       this.form_params.email = "";
@@ -157,7 +163,7 @@ export default {
           var response = await _updateUser(this.user_id,this.form_params);
         else
           var response = await _createUser(this.form_params);
-        this.$toast.info(response.message);
+        this.$toast.success(response.message);
         this.closeModal();
         this.getUsers();
       } catch (error) {
