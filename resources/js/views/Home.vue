@@ -145,6 +145,8 @@ export default {
       this.form_params.email = user.email;
     },
     async deleteUser(user){
+      if( !confirm('Are you sure you want to delete the user ?'))
+        return;
       const deleteResponse =  await _deleteUser(user.id);
       this.$toast.warning(deleteResponse.message);
       this.getUsers();
