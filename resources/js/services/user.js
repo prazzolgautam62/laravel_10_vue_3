@@ -7,4 +7,12 @@ function _getUsers(url = '', params) {
     return axios.get(`${urls}`, { params }).then(response => response.data);
 }
 
-export { _getUsers };
+function _createUser(data){
+    return axios.post(`${BASE_URL}/user`,data).then(response =>response.data);
+}
+
+function _updateUser(id,data){
+    return axios.put(`${BASE_URL}/user/${id}`,data).then(response =>response.data);
+}
+
+export { _getUsers, _createUser, _updateUser };

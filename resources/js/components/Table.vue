@@ -6,6 +6,7 @@
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Created At</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +15,9 @@
         <td>{{user.name}}</td>
         <td>{{user.email}}</td>
         <td>{{new Date(user.created_at)}}</td>
+        <td>
+         <button type="button" class="btn btn-outline-primary" @click="editUser(user)">Edit</button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -29,6 +33,11 @@ export default {
     },
     from: {
       required: true
+    }
+  },
+  methods:{
+    editUser(user){
+      this.$emit("edit",user);
     }
   }
 };
