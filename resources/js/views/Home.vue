@@ -85,7 +85,12 @@
   </div>
 </template>
 <script>
-import { _getUsers, _createUser, _updateUser, _deleteUser } from "./../services/user";
+import {
+  _getUsers,
+  _createUser,
+  _updateUser,
+  _deleteUser
+} from "./../services/user";
 import Pagination from "../utilities/Pagination.vue";
 import Table from "../components/Table.vue";
 import Modal from "../utilities/Modal.vue";
@@ -105,7 +110,7 @@ export default {
       pagination: {},
       show_modal: false,
       editMode: false,
-      user_id: null,
+      user_id: null
     };
   },
   watch: {
@@ -137,20 +142,18 @@ export default {
     addUser() {
       this.show_modal = true;
     },
-    editUser(user){
+    editUser(user) {
       this.show_modal = true;
       this.editMode = true;
       this.user_id = user.id;
       this.form_params.name = user.name;
       this.form_params.email = user.email;
     },
-    async deleteUser(user){
-      if( !confirm('Are you sure you want to delete the user ?'))
-        return;
-      const deleteResponse =  await _deleteUser(user.id);
+    async deleteUser(user) {
+      if (!confirm("Are you sure you want to delete the user ?")) return;
+      const deleteResponse = await _deleteUser(user.id);
       this.$toast.warning(deleteResponse.message);
       this.getUsers();
-
     },
     closeModal() {
       this.form_params.name = "";
@@ -161,10 +164,9 @@ export default {
     },
     async submitForm() {
       try {
-        if(this.editMode)
-          var response = await _updateUser(this.user_id,this.form_params);
-        else
-          var response = await _createUser(this.form_params);
+        if (this.editMode)
+          var response = await _updateUser(this.user_id, this.form_params);
+        else var response = await _createUser(this.form_params);
         this.$toast.success(response.message);
         this.closeModal();
         this.getUsers();
