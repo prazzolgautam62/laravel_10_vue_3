@@ -16,8 +16,8 @@
         <td>{{user.email}}</td>
         <td>{{new Date(user.created_at)}}</td>
         <td>
-         <button type="button" class="btn btn-outline-primary" @click="editUser(user)">Edit</button>&nbsp;
-         <button type="button" class="btn btn-outline-danger" @click="deleteUser(user)">Delete</button>
+         <button type="button" class="btn btn-primary" @click="editUser(user)">Edit</button>&nbsp;
+         <button type="button" class="btn btn-danger" @click="deleteUser(user)">Delete</button>
         </td>
       </tr>
     </tbody>

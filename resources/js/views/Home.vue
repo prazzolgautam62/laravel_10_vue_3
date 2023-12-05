@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div>
     <div class="d-flex justify-content-between">
       <div class="mt-auto">
-        <button type="button" class="btn btn-primary" @click="addUser">Add New User</button>
+        <button type="button" class="btn btn-outline-success" @click="addUser">Add User</button>
       </div>
       <div class="d-flex">
         <div class="form-group" style="margin-right:5px;">
