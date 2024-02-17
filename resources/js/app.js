@@ -6,6 +6,7 @@ import ToastPlugin from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-bootstrap.css';
 import App from './App.vue';
 import About from './views/About.vue';
+import Contact from './views/Contact.vue';
 import Home from './views/Home.vue';
 
 const router = createRouter({
@@ -20,6 +21,11 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: About,
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
     },
   ],
 });
