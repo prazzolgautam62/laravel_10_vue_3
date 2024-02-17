@@ -2,6 +2,8 @@
 # Laravel 10 Vue 3 Project Setup 
 Boilerplate with laravel 10 and vue 3
 
+<img src="https://laravelvuespa.com/preview-dark.png">
+
 ## Installation
 Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/10.x).
 
